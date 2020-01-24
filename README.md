@@ -7,8 +7,9 @@
 |password_digest|string|
 
 ### Association
-belongs_to :user
-belongs_to :group
+- belongs_to :user
+- belongs_to :group
+- has_many :groups,throuth: :group_users
 
 ## groupテーブル
 
@@ -25,6 +26,19 @@ belongs_to :group
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+## messageテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
