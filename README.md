@@ -4,11 +4,10 @@
 |------|----|-------|
 |name|string|null: false|
 |email|string| unique: true,null:false|
-|password_digest|string|
+|password|string|
 
 ### Association
-- belongs_to :user
-- belongs_to :group
+- has_many :group_users
 - has_many :groups,throuth: :group_users
 
 ## groupテーブル
@@ -19,7 +18,6 @@
 
 ### Association
 - has_many :group_users
-- has_many :users
 - has_many :users,throuth: :group_users
 
 ## groups_usersテーブル
