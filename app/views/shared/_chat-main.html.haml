@@ -1,0 +1,35 @@
+.chat-main
+
+  .main-header
+    .main-header__left
+      .main-header__left__group-name
+        test
+      .main-header__left__member
+        .main-header__left__member__list
+          Member:
+        .main-header__left__member__list-member
+          masa
+    .main-header__edit-btn
+      = link_to "#",class:"main-header__edit-btn--edit" do
+        Edit
+
+  .main-message
+    .main-message__box
+      .main-message__box__user
+        .main-message__box__user-name
+          masa
+        .main-message__box__user-date
+          2019/11/20(Wed) 17:43:34
+      .main-message__box__text
+        今日から夜は雨
+        
+  .main-form
+    %form.main-form__box
+      .main-form__box__input
+        %input{type:"text",class: "main-form__box__input__message", placeholder: "type a message"}
+        %label{class:"main-form__box__input__image"}
+          <i class="far fa-image"></i>
+          %input{type:"file",class:"main-form__box__input__image__file"}
+      %input{type: "submit",class: "main-form__box__btn",value: " Send"}
+ 
+      
