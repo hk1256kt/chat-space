@@ -24,12 +24,12 @@
         今日から夜は雨
         
   .main-form
-    %form.main-form__box
+    .main-form__box
       .main-form__box__input
         %input{type:"text",class: "main-form__box__input__message", placeholder: "type a message"}
         %label{class:"main-form__box__input__image"}
-          <i class="far fa-image"></i>
+          = icon('far', 'image', class: 'icon')
           %input{type:"file",class:"main-form__box__input__image__file"}
-      %input{type: "submit",class: "main-form__box__btn",value: " Send"}
+      %input{type: "submit",class: "main-form__box__btn",value: "Send"}
  
       
