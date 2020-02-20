@@ -1,0 +1,40 @@
+.chat-main
+
+  .main-header
+    .main-header__left
+      .main-header__left__group-name
+        = @group.name
+      .main-header__left__member
+        .main-header__left__member__list
+          Member:
+        .main-header__left__member__list-member
+          - @group.users.each do |member|
+            = member.name
+
+    .main-header__edit-btn
+      = link_to 'Edit',edit_group_path(@group),class:"main-header__edit-btn--edit"
+        
+  .main-message
+    .main-message__box
+      .main-message__box__user
+        .main-message__box__user-name
+          masa
+        .main-message__box__user-date
+          2019/11/20(Wed) 17:43:34
+      .main-message__box__text
+        今日から夜は雨
+  
+  .messages
+    = render @messages
+        
+  .main-form
+    = form_for [@group, @message] do |f|
+      .main-form__box
+        .main-form__box__input
+          = f.text_field :content, class: "main-form__box__input__message", placeholder: 'type a message'
+          = f.label :image, class: 'main-form__box__input__image'do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'main-form__box__input__image__file'
+        = f.submit 'Send', class: 'main-form__box__btn'
+
+    
