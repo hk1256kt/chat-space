@@ -35,6 +35,8 @@ $(function(){
      return html;
    };
  }
+//  new_messageのフォームが送信された時、イベントが発火。
+//  ajax関数が実行され、messageコントローラのcreateアクションに飛ぶ。
 $('#new_message').on('submit', function(e){
  e.preventDefault();
  var formData = new FormData(this);
@@ -47,6 +49,7 @@ $('#new_message').on('submit', function(e){
    processData: false,
    contentType: false
  })
+  //  JSONをdoneメソッドで受取り、HTMLを作成する.
   .done(function(data){
     var html = buildHTML(data);
     $('.main-message').append(html);      

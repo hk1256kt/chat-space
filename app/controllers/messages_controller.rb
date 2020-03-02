@@ -6,7 +6,9 @@ class MessagesController < ApplicationController
     @message = Message.new
     @messages = @group.messages.includes(:user)
   end
-
+  # メッセージを保存。
+  # respond_toを使用してHTMLとJSONの場合で処理を分ける.
+  # jsonの場合はjbuilderからjson形式に変換する。
   def create
     @message = @group.messages.new(message_params)
     if @message.save
